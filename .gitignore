@@ -1,2 +1,2 @@
-*.pyc
-__pycache__/
+setting.py
+.vscode/settings.json
