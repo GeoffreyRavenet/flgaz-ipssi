@@ -23,7 +23,8 @@ def save_gazouille():
 	if request.method == 'GET':
 		return render_template('formulaire.html')
 
-@app.route('/timeline', methods=['GET'])
+@app.route('/timeline', defaults={'user': None}, methods=['GET'])
+@app.route('/timeline/<user>', methods=['GET'])
 def timeline():
 	gaz = parse_from_csv()
 	return render_template("timeline.html", gaz = gaz)
