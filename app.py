@@ -14,8 +14,11 @@ def home():
 def save_gazouille():
 	if request.method == 'POST':
 		print(request.form)
-		dump_to_csv(request.form)
-		return redirect(url_for('timeline'))
+		if(len(request.form) < 281):
+			dump_to_csv(request.form)
+			return redirect(url_for('timeline'))
+		else:
+			return redirect(url_for('gaz'))
 		#return "OK"
 	if request.method == 'GET':
 		return render_template('formulaire.html')

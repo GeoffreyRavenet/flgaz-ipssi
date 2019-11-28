@@ -1,10 +1,9 @@
-
-
 import setting
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import setting
 import models
+
 
 logbdb = 'mysql+mysqlconnector://{}:{}@{}/{}'.format(setting.LOGIN, setting.MDP, setting.HOST, setting.NAME_BDD)
 engine = create_engine(logbdb)
