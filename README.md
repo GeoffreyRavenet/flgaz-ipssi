@@ -36,6 +36,12 @@ Description des actions réalisées
     -Puis rendez-vous sur web suivre les etepas pous ajouter une nouvelle web app, 
     ne pas oublier de selectionner flask pour notre cas
     
+Confuguration du setting : 
+LOGIN = "ton login"
+MDP = "mot de passe de la base"
+NAME_BDD = "nom de votre base de donnée"
+HOST = "nom de votre host fournie par pythonanywhere"
+    
     Quelles difficultés avez-vous rencontrées ?
     -Apprendre fonctionement pythonanywhere
     
