@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
-from flask_caching import Cache
 #from flask_sqlalchemy import SQLALchemy
 #from flask_security import Security, SQLALchemyUserDatastore
 
@@ -9,8 +8,9 @@ app = Flask(__name__)
 
 @app.after_request
 def after_request(response):
-    response.header['cache-controlle'] = 'max-age=300'
-	response.header['Access-Control-Allow-Origin'] = 'http://kuro.eu.pythonanywhere.com/timeline'
+	response.headers['cache-controlle'] = 'max-age=300'
+	response.headers['Access-Control-Allow-Origin'] = 'http://kuro.eu.pythonanywhere.com'
+	return response
 
 
 @app.route('/')
