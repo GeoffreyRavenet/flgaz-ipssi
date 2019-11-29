@@ -9,12 +9,13 @@ Base = declarative_base()
 class Tweet(Base):
     __tablename__ = 'tweet'
     id_casper = Column(Integer, primary_key=True)    
-    content = Column('content', String(280))    
+    content = Column('content', String(280))
+    user = Column('user', String(100))    
     #delay = Column('delay', String(50))    
     date_creation = Column('date_creation', DateTime, default=datetime.datetime.utcnow)    
     #is_temporary = Column('is_temporary', Boolean)
-    categorie = Column(String(150), ForeignKey('user.id_user'))
-    id_creator = Column(Integer, ForeignKey('category.id_categorie'))
+    #categorie = Column(String(150), ForeignKey('user.id_user'))
+    #id_creator = Column(Integer, ForeignKey('category.id_categorie'))
 
     def __str__(self):
         return self.content
