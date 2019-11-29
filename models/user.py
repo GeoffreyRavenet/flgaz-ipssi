@@ -4,9 +4,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-class User(Base):
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+db = SQLAlchemy(app)
+
+#Base = declarative_base()
+
+
+class User(db.Model):
     __tablename__ = 'user'
     id_user = Column(Integer, primary_key=True)    
     username = Column('username', String(32))    

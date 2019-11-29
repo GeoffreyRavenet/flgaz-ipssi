@@ -1,10 +1,17 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
+from flask_caching import Cache
 #from flask_sqlalchemy import SQLALchemy
 #from flask_security import Security, SQLALchemyUserDatastore
 
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = 'thissecretkey'
+
+@app.after_request
+def after_request(response):
+    response.header['cache-controlle'] = 'max-age=300'
+	response.header['Access-Control-Allow-Origin'] = 'http://kuro.eu.pythonanywhere.com/timeline'
+
 
 @app.route('/')
 def home():
@@ -45,3 +52,4 @@ def dump_to_csv(d):
 	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		writer = csv.writer(f)
 		writer.writerow(donnees)
+

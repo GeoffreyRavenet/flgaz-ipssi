@@ -1,7 +1,6 @@
 import setting
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import setting
 import models
 
 
